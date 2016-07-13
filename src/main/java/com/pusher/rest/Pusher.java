@@ -440,12 +440,12 @@ public class Pusher {
     }
 
     Result httpCall(final HttpRequestBase request) {
-        final RequestConfig config = RequestConfig.custom()
-                .setSocketTimeout(requestTimeout)
-                .setConnectionRequestTimeout(requestTimeout)
-                .setConnectTimeout(requestTimeout)
-                .build();
-        request.setConfig(config);
+//        final RequestConfig config = RequestConfig.custom()
+//                .setSocketTimeout(requestTimeout)
+//                .setConnectionRequestTimeout(requestTimeout)
+//                .setConnectTimeout(requestTimeout)
+//                .build();
+//        request.setConfig(config);
 
         try {
             final HttpResponse response = client.execute(request);

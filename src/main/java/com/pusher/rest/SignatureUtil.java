@@ -65,7 +65,7 @@ public class SignatureUtil {
         try {
             final MessageDigest md = MessageDigest.getInstance("MD5");
             final byte[] digest = md.digest(body.getBytes("UTF-8"));
-            return Hex.encodeHexString(digest);
+            return new String(Hex.encodeHex(digest));
         }
         // If this doesn't exist, we're pretty much out of luck.
         catch (final NoSuchAlgorithmException e) {
@@ -82,7 +82,7 @@ public class SignatureUtil {
             mac.init(new SecretKeySpec(secret.getBytes(), "SHA256"));
 
             final byte[] digest = mac.doFinal(input.getBytes("UTF-8"));
-            return Hex.encodeHexString(digest);
+            return new String(Hex.encodeHex(digest));
         }
         catch (final InvalidKeyException e) {
             /// We validate this when the key is first provided, so we should never encounter it here.
